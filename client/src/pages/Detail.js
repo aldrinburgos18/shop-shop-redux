@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from '@apollo/react-hooks';
 
 import { QUERY_PRODUCTS } from "../utils/queries";
 import spinner from '../assets/spinner.gif'
-import { useStoreContext } from "../utils/GlobalState";
 import Cart  from '../components/Cart';
 import {
   REMOVE_FROM_CART,
@@ -15,11 +15,12 @@ import {
 import { idbPromise } from "../utils/helpers";
 
 function Detail() {
-  const [state, dispatch] = useStoreContext();
+  const dispatch = useDispatch();
+  const { products, cart } = useSelector(state => ({products:state.products, cart:state.cart}));
+  
   const { id } = useParams();
   const [currentProduct, setCurrentProduct] = useState({})
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  const { products, cart } = state;
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
