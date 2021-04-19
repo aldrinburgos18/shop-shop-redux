@@ -4,7 +4,7 @@
 
 ## Description
 
-AS e-commerce application that allows users to shop for items, add products to cart, check out their purchases and see their order history.
+An e-commerce application that allows users to shop for items, add products to cart, check out their purchases and see their order history.
 
 **Link to Deployed Application:** [https://fast-dusk-81372.herokuapp.com/](https://fast-dusk-81372.herokuapp.com/)
 
